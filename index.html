@@ -9,9 +9,13 @@
     <script>
       // The site repository was renamed. Send every path, query and hash to the
       // same location on the new host so old links keep working.
+      var base = '/Majra-download-manager-'
+      var path = location.pathname
+      if (path.indexOf(base) === 0) path = path.slice(base.length)
+      if (path.charAt(0) !== '/') path = '/' + path
       var target =
         'https://bouadjadjatamer2-hub.github.io/asraab' +
-        location.pathname +
+        path +
         location.search +
         location.hash
       location.replace(target)

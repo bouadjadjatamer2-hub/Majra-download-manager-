@@ -9,9 +9,13 @@
     <script>
       // Deep links such as /apps/droidcrate/ arrive here with a 404 status.
       // Forward the full path so the old bookmark still lands on the right page.
+      var base = '/Majra-download-manager-'
+      var path = location.pathname
+      if (path.indexOf(base) === 0) path = path.slice(base.length)
+      if (path.charAt(0) !== '/') path = '/' + path
       var target =
         'https://bouadjadjatamer2-hub.github.io/asraab' +
-        location.pathname +
+        path +
         location.search +
         location.hash
       location.replace(target)
